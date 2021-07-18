@@ -1,0 +1,4 @@
+#Mon Jul 05 21:44:14 MSK 2021
+base.0=E\:\\ARTUR\\Android\\FiveSecondsRule\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
