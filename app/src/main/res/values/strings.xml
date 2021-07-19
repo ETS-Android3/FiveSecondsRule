@@ -6,4 +6,9 @@
     <string name="stop_botton">answer</string>
     <string name="Question_Bar">Question</string>
     <string name="Timer">5 : 00</string>
+    <string name="WinPoints">Number of points to win</string>
+    <string name="Fine">Fine for scipping answer</string>
+    <string name="LessPoints">-</string>
+    <string name="MorePoints">+</string>
+    <string name="DefaultPoints">10</string>
 </resources>
