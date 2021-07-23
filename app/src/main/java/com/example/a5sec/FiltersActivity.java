@@ -3,6 +3,7 @@ package com.example.a5sec;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,5 +36,10 @@ public class FiltersActivity extends AppCompatActivity {
             number += 1;
             ET.setText(number+ "");
         }
+    }
+
+    public void Next_Button(View view){
+        Intent intent = new Intent(this, TeamsActivity.class);
+        startActivity(intent);
     }
 }

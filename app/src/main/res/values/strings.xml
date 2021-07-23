@@ -11,4 +11,5 @@
     <string name="LessPoints">-</string>
     <string name="MorePoints">+</string>
     <string name="DefaultPoints">10</string>
+    <string name="Next_Button">Next</string>
 </resources>
