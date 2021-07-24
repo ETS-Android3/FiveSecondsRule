@@ -1,9 +1,12 @@
 package com.example.a5sec;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +39,27 @@ public class TeamsActivity extends AppCompatActivity {
                 (TeamsActivity.this, android.R.layout.simple_list_item_1, ListElementsArrayList);
         listview.setAdapter(adapter);
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final int position = i;
+                new AlertDialog.Builder(TeamsActivity.this)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setTitle("Are you sure ?")
+                        .setMessage("Do you want to delete this item")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                ListElementsArrayList.remove(position);
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("No",null)
+                        .show();
+                //ListElementsArrayList.remove(i);
+                //adapter.notifyDataSetChanged();
+            }
+        });
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
