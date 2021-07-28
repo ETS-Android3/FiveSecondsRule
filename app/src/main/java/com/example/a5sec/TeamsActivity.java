@@ -4,7 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +27,8 @@ public class TeamsActivity extends AppCompatActivity {
             "Cats",
             "Dogs",
     };
+
+    final List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +38,6 @@ public class TeamsActivity extends AppCompatActivity {
         addButton = findViewById(R.id.button7);
         GetValue = findViewById(R.id.editText1);
 
-        final List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
         final ArrayAdapter<String> adapter = new ArrayAdapter<>
                 (TeamsActivity.this, android.R.layout.simple_list_item_1, ListElementsArrayList);
         listview.setAdapter(adapter);
@@ -67,5 +70,11 @@ public class TeamsActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+    }
+    public void Next_Button(View view){
+        Intent intent = new Intent(this, GameActivity.class);
+        ArrayList<String> TeamsNames = new ArrayList<String>(ListElementsArrayList);
+        intent.putExtra("TeamsNames", TeamsNames);
+        startActivity(intent);
     }
 }

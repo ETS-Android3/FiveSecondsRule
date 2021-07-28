@@ -6,7 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    String[] ListElements = new String[] {
+            "Cats",
+            "Dogs",
+    };
+    final List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void startOneOnOne(View view){
         Intent intent = new Intent(this, GameActivity.class);
+        ArrayList<String> TeamsNames = new ArrayList<String>(ListElementsArrayList);
+        intent.putExtra("TeamsNames", TeamsNames);
         startActivity(intent);
     }
     public void startTeamGame(View view){
