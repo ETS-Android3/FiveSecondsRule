@@ -102,4 +102,27 @@ public class GameActivity extends AppCompatActivity {
         tw.setText(a);
     }
 
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                GameActivity.this);
+        quitDialog.setTitle("You sure you want to quit?");
+
+        quitDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        quitDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        quitDialog.show();
+    }
+
 }
