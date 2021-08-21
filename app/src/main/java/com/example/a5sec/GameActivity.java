@@ -21,6 +21,7 @@ public class GameActivity extends AppCompatActivity {
     private int number_of_teams = 2;
     private int[] TeamsPoints = new int[number_of_teams];
     private int Playing_team = 0;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,17 +30,22 @@ public class GameActivity extends AppCompatActivity {
             TeamsNames = getIntent().getExtras().getStringArrayList("TeamsNames");
             number_of_teams = TeamsNames.size();
             TeamsPoints = new int[number_of_teams];
+            TextView textView = findViewById(R.id.textView5);
+            textView.setText("Now playing:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
         }
     }
 
     private boolean is_timer_on = false;
 
+    @SuppressLint("SetTextI18n")
     private void Change_PlayingTeam()
     {
         if (Playing_team != number_of_teams-1)
             Playing_team++;
         else
             Playing_team = 0;
+        TextView textView = findViewById(R.id.textView5);
+        textView.setText("Now playing:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
     }
     private void OpenDialogWindow(){
         new AlertDialog.Builder(GameActivity.this)
@@ -77,7 +83,7 @@ public class GameActivity extends AppCompatActivity {
             is_timer_on = false;
             Change_PlayingTeam();
             Button button = findViewById(R.id.button3);
-            button.setText(TeamsNames.get(Playing_team));
+            button.setText(R.string.stop_botton);
         }
     };
 
@@ -95,7 +101,7 @@ public class GameActivity extends AppCompatActivity {
             is_timer_on = false;
             OpenDialogWindow();
             Button button = findViewById(R.id.button3);
-            button.setText(TeamsNames.get(Playing_team));
+            button.setText(R.string.stop_botton);
         }
         String a = "lolik";
         final TextView tw = findViewById(R.id.textView2);
