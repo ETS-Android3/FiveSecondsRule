@@ -20,6 +20,7 @@ import java.util.List;
 
 public class TeamsActivity extends AppCompatActivity {
 
+    private int Number_of_Points = 10;
     ListView listview;
     Button addButton;
     EditText GetValue;
@@ -33,7 +34,9 @@ public class TeamsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teams);
-
+        if (!getIntent().getExtras().isEmpty()) {
+            Number_of_Points = getIntent().getExtras().getInt("Points");
+        }
         listview = findViewById(R.id.listView1);
         addButton = findViewById(R.id.button7);
         GetValue = findViewById(R.id.editText1);
@@ -75,6 +78,7 @@ public class TeamsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GameActivity.class);
         ArrayList<String> TeamsNames = new ArrayList<String>(ListElementsArrayList);
         intent.putExtra("TeamsNames", TeamsNames);
+        intent.putExtra("Points", Number_of_Points);
         startActivity(intent);
     }
 }

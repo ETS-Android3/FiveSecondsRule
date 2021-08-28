@@ -40,6 +40,8 @@ public class FiltersActivity extends AppCompatActivity {
 
     public void Next_Button(View view){
         Intent intent = new Intent(this, TeamsActivity.class);
+        EditText ET = findViewById(R.id.editTextTextPersonName);
+        intent.putExtra("Points", Integer.parseInt(ET.getText().toString()));
         startActivity(intent);
     }
 }

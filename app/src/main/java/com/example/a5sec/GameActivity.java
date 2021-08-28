@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -20,6 +21,7 @@ public class GameActivity extends AppCompatActivity {
     private List<String> TeamsNames = new ArrayList<String>();
     private int number_of_teams = 2;
     private int[] TeamsPoints = new int[number_of_teams];
+    private int Number_of_Points = 10;
     private int Playing_team = 0;
     @SuppressLint("SetTextI18n")
     @Override
@@ -27,6 +29,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         if (!getIntent().getExtras().isEmpty()) {
+            Number_of_Points = getIntent().getExtras().getInt("Points");
             TeamsNames = getIntent().getExtras().getStringArrayList("TeamsNames");
             number_of_teams = TeamsNames.size();
             TeamsPoints = new int[number_of_teams];
@@ -37,13 +40,37 @@ public class GameActivity extends AppCompatActivity {
 
     private boolean is_timer_on = false;
 
+    private void CheckPoints(){
+        List<String> WinningTeams = new ArrayList<>();
+        for (int i = 0; i<TeamsPoints.length; i++){
+            if (TeamsPoints[i] == Number_of_Points)
+                WinningTeams.add(TeamsNames.get(i)+" ");
+        }
+        if (!WinningTeams.isEmpty()) {
+            StringBuilder str = new StringBuilder();
+            for (int i =0; i<WinningTeams.size(); i++)
+                str.append(WinningTeams.get(i));
+            new AlertDialog.Builder(GameActivity.this)
+                    .setTitle("Congratulation!")
+                    .setMessage("Winner: " + str)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .show();
+        }
+    }
     @SuppressLint("SetTextI18n")
     private void Change_PlayingTeam()
     {
         if (Playing_team != number_of_teams-1)
             Playing_team++;
-        else
+        else {
             Playing_team = 0;
+            CheckPoints();
+        }
         TextView textView = findViewById(R.id.textView5);
         textView.setText("Now playing:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
     }
