@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +26,7 @@ public class GameActivity extends AppCompatActivity {
     private int[] TeamsPoints = new int[number_of_teams];
     private int Number_of_Points = 10;
     private int Playing_team = 0;
+    private QuestionChanger QS;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,12 @@ public class GameActivity extends AppCompatActivity {
             TeamsPoints = new int[number_of_teams];
             TextView textView = findViewById(R.id.textView5);
             textView.setText("Now playing:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
+        }
+        try {
+            QS = new QuestionChanger(this, Number_of_Points, number_of_teams);
+            Change_Question();
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -63,8 +73,13 @@ public class GameActivity extends AppCompatActivity {
         }
     }
     @SuppressLint("SetTextI18n")
-    private void Change_PlayingTeam()
-    {
+    private void Change_Question() throws JSONException {
+        String a = QS.get_question();
+        final TextView tw = findViewById(R.id.textView2);
+        tw.setText("Назовите 3 \n" + a);
+    }
+    @SuppressLint("SetTextI18n")
+    private void Change_PlayingTeam() throws JSONException {
         if (Playing_team != number_of_teams-1)
             Playing_team++;
         else {
@@ -73,6 +88,7 @@ public class GameActivity extends AppCompatActivity {
         }
         TextView textView = findViewById(R.id.textView5);
         textView.setText("Now playing:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
+        Change_Question();
     }
     private void OpenDialogWindow(){
         new AlertDialog.Builder(GameActivity.this)
@@ -83,13 +99,21 @@ public class GameActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         TeamsPoints[Playing_team] += 1;
-                        Change_PlayingTeam();
+                        try {
+                            Change_PlayingTeam();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .setNegativeButton("No",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Change_PlayingTeam();
+                        try {
+                            Change_PlayingTeam();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .show();
@@ -108,7 +132,11 @@ public class GameActivity extends AppCompatActivity {
             TextView time_bar = findViewById(R.id.textView3);
             time_bar.setText("Time's up!");
             is_timer_on = false;
-            Change_PlayingTeam();
+            try {
+                Change_PlayingTeam();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             Button button = findViewById(R.id.button3);
             button.setText(R.string.stop_botton);
         }
@@ -130,9 +158,7 @@ public class GameActivity extends AppCompatActivity {
             Button button = findViewById(R.id.button3);
             button.setText(R.string.stop_botton);
         }
-        String a = "lolik";
-        final TextView tw = findViewById(R.id.textView2);
-        tw.setText(a);
+
     }
 
     @Override
