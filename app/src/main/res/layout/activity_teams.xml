@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeamsActivity">
+    tools:context=".TeamsActivity"
+    android:background="@color/mainColor">
 
     <Button
         android:id="@+id/button7"
@@ -15,7 +16,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editText1"
         app:layout_constraintTop_toBottomOf="@+id/listView1"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.45"
+        android:background="@color/lightAccent"
+        android:textColor="@color/darkAccent"/>
 
     <EditText
         android:id="@+id/editText1"
@@ -24,12 +27,16 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:ems="10"
+
         android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView1"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.45"
+        android:textColor="@color/darkAccent"
+        android:textStyle="italic"
+        />
 
     <ListView
         android:id="@+id/listView1"
@@ -37,7 +44,9 @@
         android:layout_height="258dp"
         android:layout_centerHorizontal="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ListView>
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/mainColor"
+        ></ListView>
 
     <Button
         android:id="@+id/button8"
@@ -48,5 +57,7 @@
         android:text="@string/Next_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/lightAccent"
+        android:textColor="@color/darkAccent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

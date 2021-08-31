@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -126,7 +125,7 @@ public class GameActivity extends AppCompatActivity {
             time_bar.setText((int)l/1000+" : "+(l/10)%100);
         }
 
-        @SuppressLint("SetTextI18n")
+        @SuppressLint({"SetTextI18n", "ResourceAsColor"})
         @Override
         public void onFinish() {
             TextView time_bar = findViewById(R.id.textView3);
@@ -138,6 +137,7 @@ public class GameActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             Button button = findViewById(R.id.button3);
+            button.setBackgroundColor(getResources().getColor(R.color.mint));
             button.setText(R.string.stop_botton);
         }
     };
@@ -148,6 +148,7 @@ public class GameActivity extends AppCompatActivity {
             timer.start();
             is_timer_on = true;
             Button button = findViewById(R.id.button3);
+            button.setBackgroundColor(getResources().getColor(R.color.pink));
             button.setText(getResources().getString(R.string.answer_button));
         }
         else
@@ -156,6 +157,7 @@ public class GameActivity extends AppCompatActivity {
             is_timer_on = false;
             OpenDialogWindow();
             Button button = findViewById(R.id.button3);
+            button.setBackgroundColor(getResources().getColor(R.color.mint));
             button.setText(R.string.stop_botton);
         }
 

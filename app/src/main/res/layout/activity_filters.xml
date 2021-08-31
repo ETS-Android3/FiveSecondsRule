@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FiltersActivity">
+    tools:context=".FiltersActivity"
+    android:background="@color/mainColor">
 
     <TextView
         android:id="@+id/textView4"
@@ -13,7 +14,8 @@
         android:layout_marginTop="40dp"
         android:text="@string/WinPoints"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/darkAccent"/>
 
     <TextView
         android:id="@+id/textView6"
@@ -23,7 +25,8 @@
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.058"
+        android:textColor="@color/darkAccent"/>
 
     <Button
         android:id="@+id/button5"
@@ -35,7 +38,9 @@
         android:onClick="More_Button"
         android:text="@string/MorePoints"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/lightAccent"
+        android:textColor="@color/darkAccent"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -46,7 +51,8 @@
         android:inputType="number"
         android:text="@string/DefaultPoints"
         app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/darkAccent"/>
 
     <Button
         android:id="@+id/button4"
@@ -58,7 +64,9 @@
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/lightAccent"
+        android:textColor="@color/darkAccent"/>
 
     <Switch
         android:id="@+id/switch1"
@@ -69,7 +77,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.050000012" />
+        app:layout_constraintVertical_bias="0.050000012"
+        android:textColor="@color/darkAccent"/>
 
     <Button
         android:id="@+id/button6"
@@ -80,6 +89,8 @@
         android:text="@string/Next_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/lightAccent"
+        android:textColor="@color/darkAccent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
