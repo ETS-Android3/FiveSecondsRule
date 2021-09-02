@@ -75,10 +75,20 @@ public class TeamsActivity extends AppCompatActivity {
         });
     }
     public void Next_Button(View view){
-        Intent intent = new Intent(this, GameActivity.class);
-        ArrayList<String> TeamsNames = new ArrayList<String>(ListElementsArrayList);
-        intent.putExtra("TeamsNames", TeamsNames);
-        intent.putExtra("Points", Number_of_Points);
-        startActivity(intent);
+        if (ListElementsArrayList.isEmpty() || ListElementsArrayList.size()==1)
+            new AlertDialog.Builder(TeamsActivity.this)
+                    .setIcon(android.R.drawable.stat_sys_warning)
+                    .setTitle("Ошибка")
+                    .setMessage("Должно быть как минимум две команды")
+                    .setNegativeButton("Назад",null)
+                    .show();
+        else
+        {
+            Intent intent = new Intent(this, GameActivity.class);
+            ArrayList<String> TeamsNames = new ArrayList<String>(ListElementsArrayList);
+            intent.putExtra("TeamsNames", TeamsNames);
+            intent.putExtra("Points", Number_of_Points);
+            startActivity(intent);
+        }
     }
 }
