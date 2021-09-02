@@ -75,7 +75,7 @@ public class GameActivity extends AppCompatActivity {
     private void Change_Question() throws JSONException {
         String a = QS.get_question();
         final TextView tw = findViewById(R.id.textView2);
-        tw.setText("Назовите 3 \n" + a);
+        tw.setText("Назовите  3 \n" + a);
     }
     @SuppressLint("SetTextI18n")
     private void Change_PlayingTeam() throws JSONException {
@@ -86,7 +86,7 @@ public class GameActivity extends AppCompatActivity {
             CheckPoints();
         }
         TextView textView = findViewById(R.id.textView5);
-        textView.setText("Now playing:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
+        textView.setText("Сейчас играет: \n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
         Change_Question();
     }
     private void OpenDialogWindow(){
@@ -129,7 +129,7 @@ public class GameActivity extends AppCompatActivity {
         @Override
         public void onFinish() {
             TextView time_bar = findViewById(R.id.textView3);
-            time_bar.setText("Время вышло!");
+            time_bar.setText("5 : 00");
             is_timer_on = false;
             try {
                 Change_PlayingTeam();
