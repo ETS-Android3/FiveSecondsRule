@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,8 +24,8 @@ public class TeamsActivity extends AppCompatActivity {
     Button addButton;
     EditText GetValue;
     String[] ListElements = new String[] {
-            "Cats",
-            "Dogs",
+            "Кошечки",
+            "Собачки",
     };
 
     final List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
@@ -51,16 +50,16 @@ public class TeamsActivity extends AppCompatActivity {
                 final int position = i;
                 new AlertDialog.Builder(TeamsActivity.this)
                         .setIcon(android.R.drawable.ic_delete)
-                        .setTitle("Are you sure ?")
-                        .setMessage("Do you want to delete this item")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        .setTitle("Вы уверены ?")
+                        .setMessage("Удалить команду?")
+                        .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 ListElementsArrayList.remove(position);
                                 adapter.notifyDataSetChanged();
                             }
                         })
-                        .setNegativeButton("No",null)
+                        .setNegativeButton("Нет",null)
                         .show();
                 //ListElementsArrayList.remove(i);
                 //adapter.notifyDataSetChanged();

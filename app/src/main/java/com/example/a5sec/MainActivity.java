@@ -13,8 +13,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     String[] ListElements = new String[] {
-            "Cats",
-            "Dogs",
+            "Кошечки",
+            "Собачки",
     };
     final List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
 

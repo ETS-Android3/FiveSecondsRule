@@ -37,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
             number_of_teams = TeamsNames.size();
             TeamsPoints = new int[number_of_teams];
             TextView textView = findViewById(R.id.textView5);
-            textView.setText("Now playing:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
+            textView.setText("Сейчас играет:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
         }
         try {
             QS = new QuestionChanger(this, Number_of_Points, number_of_teams);
@@ -61,8 +61,8 @@ public class GameActivity extends AppCompatActivity {
                 str.append(WinningTeams.get(i));
             new AlertDialog.Builder(GameActivity.this)
                     .setTitle("Congratulation!")
-                    .setMessage("Winner: " + str)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setMessage("Победитель: " + str)
+                    .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
@@ -92,9 +92,9 @@ public class GameActivity extends AppCompatActivity {
     private void OpenDialogWindow(){
         new AlertDialog.Builder(GameActivity.this)
                 .setIcon(android.R.drawable.ic_delete)
-                .setTitle("Answer check")
-                .setMessage("Should the answer be counted?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setTitle("Проверка")
+                .setMessage("Засчитать ответ?")
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         TeamsPoints[Playing_team] += 1;
@@ -105,7 +105,7 @@ public class GameActivity extends AppCompatActivity {
                         }
                     }
                 })
-                .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                .setNegativeButton("Нет",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         try {
@@ -129,7 +129,7 @@ public class GameActivity extends AppCompatActivity {
         @Override
         public void onFinish() {
             TextView time_bar = findViewById(R.id.textView3);
-            time_bar.setText("Time's up!");
+            time_bar.setText("Время вышло!");
             is_timer_on = false;
             try {
                 Change_PlayingTeam();
@@ -167,16 +167,16 @@ public class GameActivity extends AppCompatActivity {
     public void onBackPressed(){
         AlertDialog.Builder quitDialog = new AlertDialog.Builder(
                 GameActivity.this);
-        quitDialog.setTitle("You sure you want to quit?");
+        quitDialog.setTitle("Вы действительно выйти?");
 
-        quitDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
             }
         });
 
-        quitDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub

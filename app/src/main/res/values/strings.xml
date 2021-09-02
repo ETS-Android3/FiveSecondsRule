@@ -1,17 +1,17 @@
 <resources>
-    <string name="app_name">5Sec</string>
-    <string name="AppName">Five Seconds Rule</string>
-    <string name="main_play1on1">Press to play 1x1</string>
-    <string name="main_teamplay">Press to play in teams</string>
-    <string name="stop_botton">Go!</string>
-    <string name="Question_Bar">Question</string>
+    <string name="app_name">5SecondsRule</string>
+    <string name="AppName">Ответь за 5 секунд</string>
+    <string name="main_play1on1">Играть вдвоем</string>
+    <string name="main_teamplay">Играть в командах</string>
+    <string name="stop_botton">Вперед!</string>
+    <string name="Question_Bar">Ответить</string>
     <string name="Timer">5 : 00</string>
-    <string name="WinPoints">Number of points to win</string>
-    <string name="Fine">Fine for scipping answer</string>
+    <string name="WinPoints">Количество очков для победы</string>
+    <string name="Fine">Штраф за неправильный ответ</string>
     <string name="LessPoints">-</string>
     <string name="MorePoints">+</string>
     <string name="DefaultPoints">10</string>
-    <string name="Next_Button">Next</string>
-    <string name="answer_button">Answer</string>
-    <string name="OK">Ok</string>
+    <string name="Next_Button">Далее</string>
+    <string name="answer_button">Ответить</string>
+    <string name="OK">OK</string>
 </resources>

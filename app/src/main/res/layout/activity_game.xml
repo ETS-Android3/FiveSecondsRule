@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="174dp"
-        android:layout_height="97dp"
+        android:layout_width="272dp"
+        android:layout_height="171dp"
         android:gravity="center_horizontal"
         android:text="@string/Question_Bar"
         android:textColor="@color/darkAccent"
@@ -38,6 +38,7 @@
         android:id="@+id/textView3"
         android:layout_width="240dp"
         android:layout_height="69dp"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="@string/Timer"
         android:textColor="@color/darkAccent"
