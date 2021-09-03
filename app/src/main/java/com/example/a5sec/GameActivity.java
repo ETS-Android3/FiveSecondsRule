@@ -117,6 +117,19 @@ public class GameActivity extends AppCompatActivity {
                 })
                 .show();
     }
+    private CountDownTimer unnable_timer = new CountDownTimer(2000, 10) {
+        @Override
+        public void onTick(long l) {
+            Button button = findViewById(R.id.button3);
+            button.setEnabled(false);
+        }
+
+        @Override
+        public void onFinish() {
+            Button button = findViewById(R.id.button3);
+            button.setEnabled(true);
+        }
+    };
     private CountDownTimer timer = new CountDownTimer(5000, 10) {
         @SuppressLint("SetTextI18n")
         @Override
@@ -137,6 +150,7 @@ public class GameActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             Button button = findViewById(R.id.button3);
+            unnable_timer.start();
             button.setBackgroundColor(getResources().getColor(R.color.mint));
             button.setText(R.string.stop_botton);
         }
