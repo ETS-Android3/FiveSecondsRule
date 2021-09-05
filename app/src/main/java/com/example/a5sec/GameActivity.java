@@ -25,6 +25,7 @@ public class GameActivity extends AppCompatActivity {
     private int[] TeamsPoints = new int[number_of_teams];
     private int Number_of_Points = 10;
     private int Playing_team = 0;
+    private boolean fine = false;
     private QuestionChanger QS;
     @SuppressLint("SetTextI18n")
     @Override
@@ -38,6 +39,7 @@ public class GameActivity extends AppCompatActivity {
             TeamsPoints = new int[number_of_teams];
             TextView textView = findViewById(R.id.textView5);
             textView.setText("Сейчас играет:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
+            fine = getIntent().getExtras().getBoolean("Fine");
         }
         try {
             QS = new QuestionChanger(this, Number_of_Points, number_of_teams);
@@ -89,6 +91,13 @@ public class GameActivity extends AppCompatActivity {
         textView.setText("Сейчас играет: \n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
         Change_Question();
     }
+    private void Fine_Team(){
+        if (fine)
+        {
+            if (TeamsPoints[Playing_team] != 0)
+                TeamsPoints[Playing_team] -= 1;
+        }
+    }
     private void OpenDialogWindow(){
         new AlertDialog.Builder(GameActivity.this)
                 .setIcon(android.R.drawable.ic_delete)
@@ -108,6 +117,7 @@ public class GameActivity extends AppCompatActivity {
                 .setNegativeButton("Нет",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        Fine_Team();
                         try {
                             Change_PlayingTeam();
                         } catch (JSONException e) {
@@ -144,13 +154,14 @@ public class GameActivity extends AppCompatActivity {
             TextView time_bar = findViewById(R.id.textView3);
             time_bar.setText("5 : 00");
             is_timer_on = false;
+            Button button = findViewById(R.id.button3);
+            unnable_timer.start();
+            Fine_Team();
             try {
                 Change_PlayingTeam();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Button button = findViewById(R.id.button3);
-            unnable_timer.start();
             button.setBackgroundColor(getResources().getColor(R.color.mint));
             button.setText(R.string.stop_botton);
         }
@@ -181,7 +192,7 @@ public class GameActivity extends AppCompatActivity {
     public void onBackPressed(){
         AlertDialog.Builder quitDialog = new AlertDialog.Builder(
                 GameActivity.this);
-        quitDialog.setTitle("Вы действительно выйти?");
+        quitDialog.setTitle("Вы действительно хотите выйти?");
 
         quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override

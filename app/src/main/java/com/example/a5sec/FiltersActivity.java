@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 
 public class FiltersActivity extends AppCompatActivity {
 
@@ -42,6 +43,8 @@ public class FiltersActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TeamsActivity.class);
         EditText ET = findViewById(R.id.editTextTextPersonName);
         intent.putExtra("Points", Integer.parseInt(ET.getText().toString()));
+        Switch sw = (Switch) findViewById(R.id.switch1);
+        intent.putExtra("Fine", sw.isChecked());
         startActivity(intent);
     }
 }

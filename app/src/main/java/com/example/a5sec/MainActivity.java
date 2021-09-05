@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> TeamsNames = new ArrayList<String>(ListElementsArrayList);
         intent.putExtra("TeamsNames", TeamsNames);
         intent.putExtra("Points", 10);
+        intent.putExtra("Fine", false);
         startActivity(intent);
     }
     public void startTeamGame(View view){

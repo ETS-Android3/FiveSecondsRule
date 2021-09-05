@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Switch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ import java.util.List;
 public class TeamsActivity extends AppCompatActivity {
 
     private int Number_of_Points = 10;
+    private boolean sw = false;
     ListView listview;
     Button addButton;
     EditText GetValue;
@@ -35,6 +37,7 @@ public class TeamsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teams);
         if (!getIntent().getExtras().isEmpty()) {
             Number_of_Points = getIntent().getExtras().getInt("Points");
+            sw = getIntent().getExtras().getBoolean("Fine");
         }
         listview = findViewById(R.id.listView1);
         addButton = findViewById(R.id.button7);
@@ -87,6 +90,7 @@ public class TeamsActivity extends AppCompatActivity {
             ArrayList<String> TeamsNames = new ArrayList<String>(ListElementsArrayList);
             intent.putExtra("TeamsNames", TeamsNames);
             intent.putExtra("Points", Number_of_Points);
+            intent.putExtra("Fine", sw);
             startActivity(intent);
         }
     }
