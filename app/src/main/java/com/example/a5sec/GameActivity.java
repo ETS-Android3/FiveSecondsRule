@@ -4,7 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -27,6 +30,9 @@ public class GameActivity extends AppCompatActivity {
     private int Playing_team = 0;
     private boolean fine = false;
     private QuestionChanger QS;
+    private SoundPool soundPool;
+    private int mSoundId = 1;
+    private int mStreamId;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,8 @@ public class GameActivity extends AppCompatActivity {
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+        soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);
+        soundPool.load(this, R.raw.timer, 1);
     }
 
     private boolean is_timer_on = false;
@@ -167,10 +175,20 @@ public class GameActivity extends AppCompatActivity {
         }
     };
 
+    private void play_sound(){
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        float curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        int priority = 1;
+        int no_loop = 0;
+        float normal_playback_rate = 1f;
+        mStreamId = soundPool.play(mSoundId, curVolume, curVolume, priority, no_loop,
+                normal_playback_rate);
+    }
     public void Answer_Button(View view){
         if (!is_timer_on)
         {
             timer.start();
+            play_sound();
             is_timer_on = true;
             Button button = findViewById(R.id.button3);
             button.setBackgroundColor(getResources().getColor(R.color.pink));
@@ -179,6 +197,7 @@ public class GameActivity extends AppCompatActivity {
         else
         {
             timer.cancel();
+            soundPool.stop(mStreamId);
             is_timer_on = false;
             OpenDialogWindow();
             Button button = findViewById(R.id.button3);
