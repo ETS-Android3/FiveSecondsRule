@@ -71,8 +71,11 @@ public class TeamsActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ListElementsArrayList.add(GetValue.getText().toString());
-                adapter.notifyDataSetChanged();
+                if (!GetValue.getText().toString().isEmpty())
+                {
+                    ListElementsArrayList.add(GetValue.getText().toString());
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
     }
