@@ -31,7 +31,7 @@ public class QuestionChanger {
         int ques = (int) (Math.random() * array.length());
         my_questions[0] = array.getString(ques);
         for (int i = 1; i < number_of_points*number_of_teams; i++){
-            int l = (int) (Math.random() * 10);
+            int l = 1 + (int) (Math.random() * 10); //check later;
             if (ques + l < array.length())
                 ques += l;
             else

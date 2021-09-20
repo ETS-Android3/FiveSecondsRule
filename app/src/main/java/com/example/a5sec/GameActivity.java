@@ -44,7 +44,7 @@ public class GameActivity extends AppCompatActivity {
             number_of_teams = TeamsNames.size();
             TeamsPoints = new int[number_of_teams];
             TextView textView = findViewById(R.id.textView5);
-            textView.setText("Сейчас играет:\n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
+            textView.setText("Сейчас играет:\n" + TeamsNames.get(Playing_team) + "\n Количество баллов: " + TeamsPoints[Playing_team]);
             fine = getIntent().getExtras().getBoolean("Fine");
         }
         try {
@@ -81,11 +81,10 @@ public class GameActivity extends AppCompatActivity {
                     .show();
         }
     }
-    @SuppressLint("SetTextI18n")
     private void Change_Question() throws JSONException {
         String a = QS.get_question();
         final TextView tw = findViewById(R.id.textView2);
-        tw.setText("Назовите  3 \n" + a);
+        tw.setText(a);
     }
     @SuppressLint("SetTextI18n")
     private void Change_PlayingTeam() throws JSONException {
@@ -96,7 +95,7 @@ public class GameActivity extends AppCompatActivity {
             CheckPoints();
         }
         TextView textView = findViewById(R.id.textView5);
-        textView.setText("Сейчас играет: \n" + TeamsNames.get(Playing_team) + " " + TeamsPoints[Playing_team]);
+        textView.setText("Сейчас играет: \n" + TeamsNames.get(Playing_team) + "\n Количество баллов: " + TeamsPoints[Playing_team]);
         Change_Question();
     }
     private void Fine_Team(){
