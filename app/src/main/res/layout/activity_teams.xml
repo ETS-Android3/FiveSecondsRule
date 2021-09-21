@@ -11,21 +11,22 @@
         android:id="@+id/button7"
         android:layout_width="118dp"
         android:layout_height="65dp"
+        android:background="@color/lightAccent"
         android:text="@string/OK"
+        android:textColor="@color/darkAccent"
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toEndOf="@+id/editText1"
         app:layout_constraintTop_toBottomOf="@+id/listView1"
-        app:layout_constraintVertical_bias="0.45"
-        android:background="@color/lightAccent"
-        android:textColor="@color/darkAccent"/>
+        app:layout_constraintVertical_bias="0.923" />
 
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_width="241dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:ems="10"
 
         android:hint="@string/EnterText"
@@ -35,17 +36,16 @@
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView1"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.923" />
 
     <ListView
         android:id="@+id/listView1"
-        android:layout_width="411dp"
-        android:layout_height="258dp"
+        android:layout_width="0dp"
+        android:layout_height="339dp"
         android:layout_centerHorizontal="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/mainColor"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button8"

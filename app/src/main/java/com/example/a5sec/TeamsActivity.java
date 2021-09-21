@@ -44,7 +44,7 @@ public class TeamsActivity extends AppCompatActivity {
         GetValue = findViewById(R.id.editText1);
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<>
-                (TeamsActivity.this, android.R.layout.simple_list_item_1, ListElementsArrayList);
+                (TeamsActivity.this, R.layout.list_item, ListElementsArrayList);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
