@@ -1,30 +1,13 @@
 # FiveSecondsRule
-For loud companies an just for fun
+Game adapted into Russian - "Ответь за 5 секунд"
 
-# Commit rules
-* Must write number of issue (#number) you commit at first place 
+## Rules (RU):
+В этой игре следует дать 3 ответа на заданную категорию за 5 секунд. Правила: играть можно от двух человек. Ведущий в игре – это человек, который зачитывает вопрос и нажимает на кнопку «Вперед!». Если же ведущего нет, то кто-либо другой из чужой команды берет на себя эту задачу. После нажатия кнопки «Вперед!» начинается таймер в 5 секунд. После того, как игрок отвечает на вопрос, он нажимает на кнопку «ответить». Если игрок укладывается во времени, то появляется окно, в котором следует нажать «Да», если другие игроки согласны с ответом, в противном случае нажимается «Нет». Игра заканчивается, когда набирается нужное количество очков. В игре "1 на 1" - количество очков - 10.
 
-  For example: `"#12 update commit rules README.md"`
-* Use the present simple tense, imperative 
+## Prerequisites
+This application only runs on Android.
 
-  For example: `"add", not "added", "adds"`
-* Write first word with a small letter 
-
-  For example: `"add", not "Add"`
-* Don't add extra punctuation marks in the end of the commit 
-
-  For example: `"add function", not "add function."`
-* First write what you did, then you did with what; and then the details in details field
-* Commit contains one completed change
-* If number of letters is bigger then 50 than you should add empty string after main commit. After empty string it's body and before empty string it's title 
-
-  The example, how to use commit rules:    
-    ```
-    "#9 add parsing recipes site recipes_from_site.json
- 
-    Final file save in google disk. This site is parsed the whole. 
-    You need to remember to attach a link to the source"
-    
-# Team of project
+## Team of project
 - [Gabzalilov Arthur](https://github.com/a-gabzalilov)
 - [Gustomyasov Evgeniy](https://github.com/YudzhinNSK)
+- Special thanks to Vasilkova Taya for making image for icons
