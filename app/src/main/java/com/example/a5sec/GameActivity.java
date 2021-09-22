@@ -186,8 +186,8 @@ public class GameActivity extends AppCompatActivity {
     public void Answer_Button(View view){
         if (!is_timer_on)
         {
-            timer.start();
             play_sound();
+            timer.start();
             is_timer_on = true;
             Button button = findViewById(R.id.button3);
             button.setBackgroundColor(getResources().getColor(R.color.pink));
