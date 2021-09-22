@@ -9,7 +9,7 @@
         android:id="@+id/popup_window"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/darkAccent">
+        android:background="@drawable/rounded_corner_view">
 
         <TextView
             android:id="@+id/text_of_rules"
