@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Switch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +24,7 @@ public class TeamsActivity extends AppCompatActivity {
     ListView listview;
     Button addButton;
     EditText GetValue;
+    private final int max_teams = 10;
     String[] ListElements = new String[] {
             "Кошечки",
             "Собачки",
@@ -71,7 +71,7 @@ public class TeamsActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!GetValue.getText().toString().isEmpty())
+                if (!GetValue.getText().toString().isEmpty()&&ListElementsArrayList.size()!=max_teams)
                 {
                     ListElementsArrayList.add(GetValue.getText().toString());
                     adapter.notifyDataSetChanged();
