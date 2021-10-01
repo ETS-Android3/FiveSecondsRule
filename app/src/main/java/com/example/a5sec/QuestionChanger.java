@@ -14,8 +14,7 @@ import java.io.InputStreamReader;
 public class QuestionChanger {
 
     private String[] my_questions;
-    private int number_of_points;
-    private int number_of_teams;
+    private int maximum_size = 30;
     private JSONArray array;
     private int qs = 0;
 
@@ -30,8 +29,9 @@ public class QuestionChanger {
     private void Generate() throws JSONException {
         int ques = (int) (Math.random() * array.length());
         my_questions[0] = array.getString(ques);
-        for (int i = 1; i < number_of_points*number_of_teams; i++){
-            int l = 1 + (int) (Math.random() * 10); //check later;
+        for (int i = 1; i < maximum_size; i++){
+            int step = (int) array.length()/maximum_size;
+            int l = 1 + (int) (Math.random() * step); //check later;
             if (ques + l < array.length())
                 ques += l;
             else
@@ -40,13 +40,11 @@ public class QuestionChanger {
         }
         shuffle();
     }
-    public QuestionChanger(Context context, int number_of_points1, int number_of_teams1) throws IOException, JSONException {
+    public QuestionChanger(Context context) throws IOException, JSONException {
         String jsonText = readText(context, R.raw.questions);
         JSONObject raw = new JSONObject(jsonText);
-        my_questions = new String[number_of_points1*number_of_teams1];
+        my_questions = new String[maximum_size];
         this.array = raw.getJSONArray("questions");
-        this.number_of_points = number_of_points1;
-        this.number_of_teams = number_of_teams1;
         Generate();
     }
     private static String readText(Context context, int resId) throws IOException {

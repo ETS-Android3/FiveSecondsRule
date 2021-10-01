@@ -48,7 +48,7 @@ public class GameActivity extends AppCompatActivity {
             fine = getIntent().getExtras().getBoolean("Fine");
         }
         try {
-            QS = new QuestionChanger(this, Number_of_Points, number_of_teams);
+            QS = new QuestionChanger(this);
             Change_Question();
         } catch (IOException | JSONException e) {
             e.printStackTrace();
