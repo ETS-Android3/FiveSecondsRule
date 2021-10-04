@@ -28,7 +28,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:ems="10"
-
+        android:maxLength="12"
         android:hint="@string/EnterText"
         android:inputType="textPersonName"
         android:textColor="@color/darkAccent"

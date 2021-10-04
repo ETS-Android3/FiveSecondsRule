@@ -71,9 +71,15 @@ public class TeamsActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!GetValue.getText().toString().isEmpty()&&ListElementsArrayList.size()!=max_teams)
+                String team_name = GetValue.getText().toString().trim();
+                boolean exists = false;
+                for (int i = 0; i<ListElementsArrayList.size(); i++){
+                    if (ListElementsArrayList.get(i).equals(team_name))
+                        exists = true;
+                }
+                if (!team_name.isEmpty()&&ListElementsArrayList.size()!=max_teams&&!exists)
                 {
-                    ListElementsArrayList.add(GetValue.getText().toString());
+                    ListElementsArrayList.add(team_name);
                     adapter.notifyDataSetChanged();
                 }
             }
