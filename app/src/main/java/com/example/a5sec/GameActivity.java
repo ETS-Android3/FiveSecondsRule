@@ -55,6 +55,13 @@ public class GameActivity extends AppCompatActivity {
         }
         soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);
         soundPool.load(this, R.raw.timer, 1);
+        TextView textView = findViewById(R.id.textView5);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShowTeams();
+            }
+        });
     }
 
     private boolean is_timer_on = false;
@@ -104,6 +111,22 @@ public class GameActivity extends AppCompatActivity {
             if (TeamsPoints[Playing_team] != 0)
                 TeamsPoints[Playing_team] -= 1;
         }
+    }
+    private void ShowTeams(){
+        String points = "";
+        for (int i = 0; i<TeamsNames.size(); i++)
+        {
+            points += TeamsNames.get(i) + " : " + TeamsPoints[i] + "\n";
+        }
+        new AlertDialog.Builder(GameActivity.this)
+                .setTitle("Количество очков")
+                .setMessage(points)
+                .setPositiveButton("Ок", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                })
+                .show();
     }
     private void OpenDialogWindow(){
         new AlertDialog.Builder(GameActivity.this)
