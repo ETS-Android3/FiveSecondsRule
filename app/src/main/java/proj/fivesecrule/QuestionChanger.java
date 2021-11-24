@@ -1,4 +1,4 @@
-package com.example.a5sec;
+package proj.fivesecrule;
 
 import android.content.Context;
 

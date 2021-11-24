@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a5sec">
+    package="proj.fivesecrule">
 
     <application
         android:allowBackup="true"
@@ -9,14 +8,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TeamsActivity"
+        <activity android:name="proj.fivesecrule.TeamsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".GameActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"/>
-        <activity android:name=".FiltersActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"/>
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
+        <activity android:name="proj.fivesecrule.GameActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="proj.fivesecrule.FiltersActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="proj.fivesecrule.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,5 +27,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 
 </manifest>

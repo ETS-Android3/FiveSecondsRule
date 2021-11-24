@@ -10,7 +10,5 @@
 .DS_Store
 /build
 /captures
-/supported/
-*.md
 .externalNativeBuild
 .cxx
