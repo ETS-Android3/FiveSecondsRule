@@ -19,7 +19,12 @@
             android:layout_margin="30dp"
             android:text="@string/FullRules"
             android:textSize="18sp"
-            android:textColor="@color/lightAccent"/>
+            android:textColor="@color/darkAccent"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="1.0"
+            />
 
     </RelativeLayout>
     </ScrollView>

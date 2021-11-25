@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="proj.fivesecrule.MainActivity"
-    android:background="@color/mainColor">
+    android:background="@drawable/gradient_background">
 
     <Button
         android:id="@+id/button2"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        android:background="@color/lightAccent"
+        android:background="@drawable/rounded_button"
         android:textColor="@color/darkAccent"/>
 
     <Button
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.36"
-        android:background="@color/lightAccent"
+        android:background="@drawable/rounded_button"
         android:textColor="@color/darkAccent"/>
 
     <TextView
@@ -54,7 +54,7 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginTop="34dp"
-        android:background="@color/pink"
+        android:background="@drawable/rounded_button_red"
         android:onClick="Rules_button"
         android:text="@string/Rules"
         android:textColor="@color/darkAccent"

@@ -79,13 +79,13 @@ public class GameActivity extends AppCompatActivity {
             new AlertDialog.Builder(GameActivity.this)
                     .setTitle("Congratulation!")
                     .setMessage("Победитель: " + str)
-                    .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
                         }
                     })
-                    .show();
+                    .show().setCancelable(false);
         }
     }
     private void Change_Question() throws JSONException {
@@ -155,7 +155,7 @@ public class GameActivity extends AppCompatActivity {
                         }
                     }
                 })
-                .show();
+                .show().setCancelable(false);
     }
     private CountDownTimer unnable_timer = new CountDownTimer(2000, 10) {
         @Override
@@ -192,7 +192,8 @@ public class GameActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            button.setBackgroundColor(getResources().getColor(R.color.mint));
+            button.setBackground(getResources().getDrawable(R.drawable.green_button));
+            //button.setBackgroundColor(getResources().getColor(R.color.mint));
             button.setText(R.string.stop_botton);
         }
     };
@@ -213,7 +214,8 @@ public class GameActivity extends AppCompatActivity {
             timer.start();
             is_timer_on = true;
             Button button = findViewById(R.id.button3);
-            button.setBackgroundColor(getResources().getColor(R.color.pink));
+            button.setBackground(getResources().getDrawable(R.drawable.pink_button));
+            //button.setBackgroundColor(getResources().getColor(R.color.pink));
             button.setText(getResources().getString(R.string.answer_button));
         }
         else
@@ -223,7 +225,8 @@ public class GameActivity extends AppCompatActivity {
             is_timer_on = false;
             OpenDialogWindow();
             Button button = findViewById(R.id.button3);
-            button.setBackgroundColor(getResources().getColor(R.color.mint));
+            button.setBackground(getResources().getDrawable(R.drawable.green_button));
+            //button.setBackgroundColor(getResources().getColor(R.color.mint));
             button.setText(R.string.stop_botton);
         }
 
@@ -249,7 +252,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        quitDialog.show();
+        quitDialog.show().setCancelable(false);
     }
 
 }

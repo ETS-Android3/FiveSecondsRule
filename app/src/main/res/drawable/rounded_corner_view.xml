@@ -8,7 +8,10 @@
     <!-- This is the border color -->
     <stroke android:width="2dp" android:color="@color/pink" />
 
-    <!--- This is the background color -->
-    <solid android:color="@color/darkAccent" />
+    <gradient
+        android:type="linear"
+        android:angle="45"
+        android:startColor="@color/mainColor"
+        android:endColor="@color/pink" />
 
 </shape>

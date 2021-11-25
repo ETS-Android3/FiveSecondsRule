@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="proj.fivesecrule.GameActivity"
-    android:background="@color/mainColor">
+    android:background="@drawable/gradient_background">
 
     <Button
         android:id="@+id/button3"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        android:background="@color/mint"
+        android:background="@drawable/green_button"
         android:textColor="@color/darkAccent"/>
 
     <TextView
