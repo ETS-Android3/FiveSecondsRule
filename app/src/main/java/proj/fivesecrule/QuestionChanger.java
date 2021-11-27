@@ -30,7 +30,7 @@ public class QuestionChanger {
         int ques = (int) (Math.random() * array.length());
         my_questions[0] = array.getString(ques);
         for (int i = 1; i < maximum_size; i++){
-            int step = (int) array.length()/maximum_size;
+            int step = maximum_size;//(int) array.length()/maximum_size;
             int l = 1 + (int) (Math.random() * step); //check later;
             if (ques + l < array.length())
                 ques += l;
