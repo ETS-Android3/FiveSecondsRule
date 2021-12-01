@@ -19,7 +19,7 @@
             android:layout_margin="30dp"
             android:text="@string/FullRules"
             android:textSize="28sp"
-            android:textColor="@color/lightAccent"/>
+            android:textColor="@color/darkAccent"/>
 
     </RelativeLayout>
     </ScrollView>

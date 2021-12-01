@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         android:background="@drawable/green_button"
         android:onClick="Answer_Button"
         android:text="@string/stop_botton"

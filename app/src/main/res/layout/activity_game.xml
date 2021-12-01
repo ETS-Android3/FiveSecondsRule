@@ -10,7 +10,7 @@
     <Button
         android:id="@+id/button3"
         android:layout_width="175dp"
-        android:layout_height="183dp"
+        android:layout_height="175dp"
         android:onClick="Answer_Button"
         android:text="@string/stop_botton"
         app:layout_constraintBottom_toBottomOf="parent"
