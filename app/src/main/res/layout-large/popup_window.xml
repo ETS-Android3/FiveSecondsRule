@@ -15,11 +15,65 @@
             android:id="@+id/text_of_rules"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_margin="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:text="@string/FullRules"
             android:textSize="28sp"
-            android:textColor="@color/darkAccent"/>
+            android:textColor="@color/darkAccent"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="1.0" />
+
+        <TextView
+            android:id="@+id/text_of_rules_players"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_of_rules"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="1.0"
+            android:text="@string/RulesPlayers"
+            android:textColor="@color/darkAccent"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/text_of_rules_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_of_rules_players"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="1.0"
+            android:text="@string/RulesMain"
+            android:textColor="@color/darkAccent"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/text_of_rules_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_of_rules_main"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="1.0"
+            android:text="@string/RulesEnd"
+            android:textColor="@color/darkAccent"
+            android:textSize="28sp" />
 
     </RelativeLayout>
     </ScrollView>

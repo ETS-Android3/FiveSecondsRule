@@ -23,6 +23,18 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:exported="true"
+            android:name="proj.fivesecrule.MainActivity" />
+        <service
+            android:exported="true"
+            android:name="proj.fivesecrule.FiltersActivity" />
+        <service
+            android:exported="true"
+            android:name="proj.fivesecrule.GameActivity" />
+        <service
+            android:exported="true"
+            android:name="proj.fivesecrule.TeamsActivity" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

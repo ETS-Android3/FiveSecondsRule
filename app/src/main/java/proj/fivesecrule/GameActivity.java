@@ -7,8 +7,15 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -25,14 +32,13 @@ public class GameActivity extends AppCompatActivity {
 
     private List<String> TeamsNames = new ArrayList<String>();
     private int number_of_teams = 2;
-    private int[] TeamsPoints = new int[number_of_teams];
     private int Number_of_Points = 10;
-    private int Playing_team = 0;
     private boolean fine = false;
     private QuestionChanger QS;
     private SoundPool soundPool;
     private int mSoundId = 1;
     private int mStreamId;
+    private TeamChanger teamChanger;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +48,9 @@ public class GameActivity extends AppCompatActivity {
             Number_of_Points = getIntent().getExtras().getInt("Points");
             TeamsNames = getIntent().getExtras().getStringArrayList("TeamsNames");
             number_of_teams = TeamsNames.size();
-            TeamsPoints = new int[number_of_teams];
+            teamChanger = new TeamChanger(number_of_teams, TeamsNames, Number_of_Points);
             TextView textView = findViewById(R.id.textView5);
-            textView.setText("Сейчас играет:\n" + TeamsNames.get(Playing_team) + "\n Количество баллов: " + TeamsPoints[Playing_team]);
+            textView.setText("Сейчас играет:\n" + teamChanger.get_team_name() + "\n Количество баллов: " + teamChanger.get_team_points());
             fine = getIntent().getExtras().getBoolean("Fine");
         }
         try {
@@ -53,6 +59,7 @@ public class GameActivity extends AppCompatActivity {
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+        findViewById(R.id.change_button).setEnabled(false);
         soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);
         soundPool.load(this, R.raw.timer, 1);
         TextView textView = findViewById(R.id.textView5);
@@ -67,15 +74,8 @@ public class GameActivity extends AppCompatActivity {
     private boolean is_timer_on = false;
 
     private void CheckPoints(){
-        List<String> WinningTeams = new ArrayList<>();
-        for (int i = 0; i<TeamsPoints.length; i++){
-            if (TeamsPoints[i] == Number_of_Points)
-                WinningTeams.add(TeamsNames.get(i)+" ");
-        }
-        if (!WinningTeams.isEmpty()) {
-            StringBuilder str = new StringBuilder();
-            for (int i =0; i<WinningTeams.size(); i++)
-                str.append(WinningTeams.get(i));
+        if (teamChanger.Time_to_finish()) {
+            String str = teamChanger.Generate_winning_teams();
             new AlertDialog.Builder(GameActivity.this)
                     .setTitle("Congratulation!")
                     .setMessage("Победитель: " + str)
@@ -95,29 +95,18 @@ public class GameActivity extends AppCompatActivity {
     }
     @SuppressLint("SetTextI18n")
     private void Change_PlayingTeam() throws JSONException {
-        if (Playing_team != number_of_teams-1)
-            Playing_team++;
-        else {
-            Playing_team = 0;
-            CheckPoints();
-        }
+        findViewById(R.id.change_button).setEnabled(true);
+        CheckPoints();
+        teamChanger.change_playing_team();
         TextView textView = findViewById(R.id.textView5);
-        textView.setText("Сейчас играет: \n" + TeamsNames.get(Playing_team) + "\n Количество баллов: " + TeamsPoints[Playing_team]);
+        textView.setText("Сейчас играет:\n" + teamChanger.get_team_name() + "\n Количество баллов: " + teamChanger.get_team_points());
         Change_Question();
     }
     private void Fine_Team(){
-        if (fine)
-        {
-            if (TeamsPoints[Playing_team] != 0)
-                TeamsPoints[Playing_team] -= 1;
-        }
+        if (fine) teamChanger.decrease_points();
     }
     private void ShowTeams(){
-        String points = "";
-        for (int i = 0; i<TeamsNames.size(); i++)
-        {
-            points += TeamsNames.get(i) + " : " + TeamsPoints[i] + "\n";
-        }
+        String points = teamChanger.get_all_point();
         new AlertDialog.Builder(GameActivity.this)
                 .setTitle("Количество очков")
                 .setMessage(points)
@@ -136,7 +125,7 @@ public class GameActivity extends AppCompatActivity {
                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        TeamsPoints[Playing_team] += 1;
+                        teamChanger.increase_points();
                         try {
                             Change_PlayingTeam();
                         } catch (JSONException e) {
@@ -215,7 +204,6 @@ public class GameActivity extends AppCompatActivity {
             is_timer_on = true;
             Button button = findViewById(R.id.button3);
             button.setBackground(getResources().getDrawable(R.drawable.pink_button));
-            //button.setBackgroundColor(getResources().getColor(R.color.pink));
             button.setText(getResources().getString(R.string.answer_button));
         }
         else
@@ -226,10 +214,36 @@ public class GameActivity extends AppCompatActivity {
             OpenDialogWindow();
             Button button = findViewById(R.id.button3);
             button.setBackground(getResources().getDrawable(R.drawable.green_button));
-            //button.setBackgroundColor(getResources().getColor(R.color.mint));
             button.setText(R.string.stop_botton);
         }
 
+    }
+
+    public void Change_points(View view){
+        if (teamChanger.ifPreviousTeamAvailable())
+            new AlertDialog.Builder(GameActivity.this)
+                    .setIcon(android.R.drawable.ic_partial_secure)
+                    .setTitle("Изменить количество баллов")
+                    .setMessage("Уменьшить или увеличить количество баллов команде: " + teamChanger.get_previous_team_name() + "?")
+                    .setPositiveButton("Увеличить", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            teamChanger.increase_points_to_previous_team();
+                        }
+                    })
+                    .setNegativeButton("Уменьшить",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            teamChanger.decrease_points_to_previous_team();
+                        }
+                    })
+                    .setNeutralButton("Отмена", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    })
+                    .show().setCancelable(false);
+        findViewById(R.id.change_button).setEnabled(false);
     }
 
     @Override
