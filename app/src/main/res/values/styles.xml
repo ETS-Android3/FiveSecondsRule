@@ -6,5 +6,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="CongratsPopUp" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/pink</item>
+        <item name="android:textColor">@color/darkAccent</item>
+    </style>
 </resources>

@@ -10,12 +10,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner_view">
-
             <TextView
                 android:id="@+id/text_of_rules"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:text="@string/FullRules"
@@ -66,7 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="10dp"
                 android:shadowColor="#FFFFFF"
                 android:shadowDx="0.0"
                 android:shadowDy="0.0"
@@ -74,6 +73,17 @@
                 android:text="@string/RulesEnd"
                 android:textColor="@color/darkAccent"
                 android:textSize="22sp" />
+            <Button
+                android:id="@+id/button9"
+                android:layout_below="@+id/text_of_rules_end"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/Back"
+                android:textColor="@color/darkAccent"
+                />
 
         </RelativeLayout>
     </ScrollView>
