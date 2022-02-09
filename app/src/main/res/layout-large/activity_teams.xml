@@ -10,8 +10,8 @@
     <Button
         android:id="@+id/button7"
         android:layout_width="150dp"
-        android:layout_height="56dp"
-        android:background="@color/lightAccent"
+        android:layout_height="80dp"
+        android:background="@drawable/rounded_button"
         android:text="@string/OK"
         android:textColor="@color/darkAccent"
         android:textSize="26sp"
@@ -59,6 +59,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/lightAccent"
+        android:background="@drawable/rounded_button"
         android:textColor="@color/darkAccent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

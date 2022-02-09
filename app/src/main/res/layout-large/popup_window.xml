@@ -75,6 +75,19 @@
             android:textColor="@color/darkAccent"
             android:textSize="28sp" />
 
+        <Button
+            android:id="@+id/button9"
+            android:layout_below="@+id/text_of_rules_end"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:textSize="26sp"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/Back"
+            android:textColor="@color/darkAccent"
+            />
+
     </RelativeLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
