@@ -83,7 +83,7 @@
             android:textSize="26sp"
             android:layout_width="150dp"
             android:layout_height="80dp"
-            android:background="@drawable/rounded_button"
+            android:background="@null"
             android:text="@string/Back"
             android:textColor="@color/darkAccent"
             />

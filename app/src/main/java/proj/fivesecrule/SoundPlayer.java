@@ -22,7 +22,7 @@ public class SoundPlayer {
         int no_loop = 0;
         float normal_playback_rate = 1f;
         int mSoundId = 1;
-        mStreamId = soundPool.play(mSoundId, curVolume, maxVolume, priority, no_loop,
+        mStreamId = soundPool.play(mSoundId, curVolume, curVolume, priority, no_loop,
                 normal_playback_rate);
     }
 

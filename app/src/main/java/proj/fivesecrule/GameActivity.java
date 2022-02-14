@@ -31,7 +31,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_game2);
         if (!getIntent().getExtras().isEmpty()) {
             Number_of_Points = getIntent().getExtras().getInt("Points");
             TeamsNames = getIntent().getExtras().getStringArrayList("TeamsNames");
@@ -107,7 +107,7 @@ public class GameActivity extends AppCompatActivity {
     }
     private void OpenDialogWindow(){
         new AlertDialog.Builder(GameActivity.this)
-                .setIcon(android.R.drawable.ic_delete)
+                .setIcon(R.drawable.ic_launcher_foreground)
                 .setTitle("Проверка")
                 .setMessage("Засчитать ответ?")
                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {

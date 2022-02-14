@@ -53,8 +53,8 @@ public class TeamsActivity extends AppCompatActivity {
                 final int position = i;
                 new AlertDialog.Builder(TeamsActivity.this)
                         .setIcon(android.R.drawable.ic_delete)
-                        .setTitle("Вы уверены ?")
-                        .setMessage("Удалить команду?")
+                        .setTitle("Удалить команду?")
+                        .setMessage("Вы действительно хотите удалить команду?")
                         .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

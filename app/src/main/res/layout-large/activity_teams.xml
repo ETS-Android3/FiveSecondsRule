@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="proj.fivesecrule.TeamsActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/background_picture">
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:background="@drawable/rounded_button"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/OK"
         android:textColor="@color/darkAccent"
         android:textSize="26sp"
@@ -32,7 +32,8 @@
         android:maxLength="12"
         android:hint="@string/EnterText"
         android:inputType="textPersonName"
-        android:textColor="@color/darkAccent"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey"
         android:textSize="26sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/button8"
@@ -50,8 +51,8 @@
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="30dp"
         android:onClick="Next_Button"
         android:text="@string/Next_Button"
@@ -59,6 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_button_white"
         android:textColor="@color/darkAccent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

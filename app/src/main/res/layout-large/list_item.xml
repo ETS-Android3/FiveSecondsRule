@@ -7,4 +7,4 @@
     android:layout_height="80dp"
     android:textSize="40sp"
     android:gravity="center"
-    android:textColor="@color/darkAccent"/>
+    android:textColor="@color/grey"/>

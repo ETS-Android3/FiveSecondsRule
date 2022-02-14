@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="proj.fivesecrule.FiltersActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/background_picture">
 
     <TextView
         android:id="@+id/textView4"
@@ -16,7 +16,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center_vertical"
         android:text="@string/WinPoints"
-        android:textColor="@color/darkAccent"
+        android:textColor="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +28,7 @@
         android:layout_marginLeft="12dp"
         android:gravity="center_vertical"
         android:text="@string/Fine"
-        android:textColor="@color/darkAccent"
+        android:textColor="@color/grey"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -42,10 +42,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:onClick="More_Button"
+        android:textSize="30sp"
         android:text="@string/MorePoints"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_button_white"
         android:textColor="@color/darkAccent"/>
 
     <EditText
@@ -58,7 +59,8 @@
         android:text="@string/DefaultPoints"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/darkAccent"/>
+        android:textColor="@color/grey"
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/button4"
@@ -67,18 +69,20 @@
         android:layout_marginTop="40dp"
         android:onClick="Less_Button"
         android:text="@string/LessPoints"
+        android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_button_white"
         android:textColor="@color/darkAccent"/>
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:textColor="@color/darkAccent"
+        android:textColorHint="@color/ic_launcher_background"
+        android:textColor="@color/ic_launcher_background"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -96,7 +100,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_button_white"
         android:textColor="@color/darkAccent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
